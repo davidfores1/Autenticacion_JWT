@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+// Route::resource('clientes', 'ClienteController');
+Route::resource('clientes', 'App\Http\Controllers\ClienteController');
+
