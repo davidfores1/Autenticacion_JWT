@@ -15,7 +15,7 @@ export class ClienteService {
   }
 
   insert(data:Cliente){
-    return this.http.post('http://127.0.0.1:8000/clientes', data);
+    return this.http.post('http://127.0.0.1:8000/clientes',data);
   }
 
   update(data:Cliente){

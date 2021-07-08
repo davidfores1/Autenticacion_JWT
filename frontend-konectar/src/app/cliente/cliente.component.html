@@ -1,3 +1,20 @@
+<form class="form-group" *ngIf="crud_operation.is_visible">
+
+    <label for="">Documento</label>
+    <input type="number" class="form-control"[(ngModel)]="actual_cliente.documento" name="documento">
+    <label for="">Nombre</label>
+    <input type="text" class="form-control" [(ngModel)]="actual_cliente.nombre" name="nombre">
+    <label for="">Correo</label>
+    <input type="text" class="form-control" [(ngModel)]="actual_cliente.correo" name="correo">
+    <label for="text">Dirección</label>
+    <input type="text" class="form-control" [(ngModel)]="actual_cliente.direccion"name="direccion">
+
+    <button class="btn btn-success" (click)="save()">Guardar</button>
+    <button class="btn btn-warning" (click)="crud_operation.is_visible=false">Cancelar</button>
+    
+</form>
+
+<button class="btn btn-info" (click)="new()">Registar Cliente</button>
 <table class="table">
     <thead>
       <tr>
