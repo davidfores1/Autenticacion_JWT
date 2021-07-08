@@ -1,9 +1,9 @@
 export class Cliente {
     id:number;
-    cedula:number;
+    documento:number;
     nombre:string;
-    email:string;
-    telefono:string;
+    correo:string;
+    direccion:string;
 
     constructor(){
 

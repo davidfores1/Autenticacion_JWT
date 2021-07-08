@@ -1,18 +1,18 @@
 <table class="table">
     <thead>
       <tr>
-        <th scope="col">Cedula</th>
+        <th scope="col">Documento</th>
         <th scope="col">Nombre</th>
-        <th scope="col">Email</th>
-        <th scope="col">Telefono</th>
+        <th scope="col">correo</th>
+        <th scope="col">Dirección</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let row of data">
-        <td>{{row.cedula}}</td>
+        <td>{{row.documento}}</td>
         <td>{{row.nombre}}</td>
-        <td>{{row.email}}</td>
-        <td>{{row.telefono}}</td>
+        <td>{{row.correo}}</td>
+        <td>{{row.direccion}}</td>
         
       </tr>
     </tbody>

@@ -70,10 +70,10 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $cliente = Cliente::findOrFail($id);
-        $cliente->cedula = $request->cedula;
+        $cliente->documento = $request->cedula;
         $cliente->nombre = $request->nombre;
-        $cliente->email = $request->email;
-        $cliente->telefono = $request->telefono;
+        $cliente->correo = $request->email;
+        $cliente->direccion = $request->telefono;
         $cliente->update();
         return $cliente;
     }
