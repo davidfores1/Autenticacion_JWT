@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
-import { ClienteService } from './cliente.service';
+import { ClienteService } from './services/cliente.service';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 

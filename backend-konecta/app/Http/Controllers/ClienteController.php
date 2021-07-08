@@ -55,10 +55,7 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
-    }
+
 
     /**
      * Update the specified resource in storage.
@@ -70,10 +67,10 @@ class ClienteController extends Controller
     public function update(Request $request, $id)
     {
         $cliente = Cliente::findOrFail($id);
-        $cliente->documento = $request->cedula;
+        $cliente->documento = $request->documento;
         $cliente->nombre = $request->nombre;
-        $cliente->correo = $request->email;
-        $cliente->direccion = $request->telefono;
+        $cliente->correo = $request->correo;
+        $cliente->direccion = $request->direccion;
         $cliente->update();
         return $cliente;
     }
