@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Email</th>
+        <th scope="col">Telefono</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of data">
+        <td>{{row.cedula}}</td>
+        <td>{{row.nombre}}</td>
+        <td>{{row.email}}</td>
+        <td>{{row.telefono}}</td>
+        
+      </tr>
+    </tbody>
+  </table>
