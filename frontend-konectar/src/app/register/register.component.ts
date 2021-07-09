@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {UsuarioService} from '../services/usuario.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -10,8 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent implements OnInit {
 form:FormGroup;
 submitted = false;
+data:any;
 
-  constructor(private formBuilder:FormBuilder ) { }
+  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private toastrService:ToastrService ) { }
 
   createForm(){
 
@@ -38,6 +40,13 @@ submitted = false;
     if(this.form.invalid){
       return;
     }
+    this.usuarioService.registerUser(this.form.value).subscribe(res=>{
+      this.data = res;
+      console.log(res);
+      
+    })
   }
+
+
 
 }
