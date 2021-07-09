@@ -1,40 +1,85 @@
 <div class="container mt-4">
 
-<header class="bg-info text-white p-1 mb-2 text-center">
-    <h1>Registro</h1>
-</header>
+    <header class="bg-info text-white p-1 mb-2 text-center">
+        <h1>Registro</h1>
+    </header>
 
 
-<form>
-
-    <div class="form-group">
-        <label for="">Nombre</label>
-        <input type="text" name="name" class="form-control" placeholder="Nombre">
-    </div>
-
-    <div class="form-group">
-        <label for="">Correo</label>
-        <input type="text" name="email" class="form-control" placeholder="Correo">
-    </div>
-
-    <div class="form-group">
-        <label for="">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Password">
-    </div>
-
-    <div class="form-group">
-        <label for="">Confirmar Password</label>
-        <input type="password" name="confirm_password" class="form-control" placeholder="Confirmar Password">
-    </div>
+    <form (ngSubmit)="submit()" [formGroup]="form">
 
         <div class="form-group">
-        <label for="">Rol</label>
-        <select class="form-control" name="id_rol" id="exampleFormControlSelect2">
-            <option value="1">Administrador</option>
-            <option value="2">Vendedor</option>
-          </select>
-    </div>
+            <label for="">Nombre</label>
+            <input type="text" name="name" formControlName="name" class="form-control" placeholder="Nombre"
+                [ngClass]="{'is-invalid': submitted && f.name.errors}">
 
-</form>
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                <div *ngIf="f.name.errors.required">
+                    El nombre es requerido
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Correo</label>
+            <input type="text" formControlName="email" name="email" class="form-control" placeholder="Correo"
+                [ngClass]="{'is-invalid': submitted && f.email.errors}">
+
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">
+                    El correo es requerido
+                </div>
+
+                <div *ngIf="f.email.errors">
+                    Correo erroneo
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" formControlName="password" name="password" class="form-control"
+                placeholder="Password" [ngClass]="{'is-invalid': submitted && f.password.errors}">
+
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+
+                <div *ngIf="f.password.errors.required">
+                    El password es requerido
+                </div>
+
+                <div *ngIf="f.password.errors.minlength">
+                    El password debe contener minimo 6 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Confirmar Password</label>
+            <input type="password" formControlName="confirm_password" name="confirm_password" class="form-control"
+                placeholder="Confirmar Password" [ngClass]="{'is-invalid': submitted && f.confirm_password.errors}">
+            <div *ngIf="submitted && f.confirm_password.errors" class="invalid-feedback">
+                <div *ngIf="f.confirm_password.errors.required">
+                    El password es requerido
+                </div>
+
+                <div *ngIf="f.confirm_password.errors.mustMatch">
+                    El password debe contener minimo 6 caracteres
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="">Rol</label>
+            <select class="form-control" formControlName="id_rol" name="id_rol" id="exampleFormControlSelect2" required>
+                <option value="1">Administrador</option>
+                <option value="2">Vendedor</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-4">Registrar</button>
+
+    </form>
 
 </div>
