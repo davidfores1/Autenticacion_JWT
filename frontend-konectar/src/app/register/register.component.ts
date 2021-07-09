@@ -54,8 +54,12 @@ data:any;
           progressBar:true
         });
       }
+      this.submitted = false;
+      this.form.get('name')?.reset();
+      this.form.get('email')?.reset();
+      this.form.get('password')?.reset();
+      this.form.get('confirm_password')?.reset();
+      this.form.get('id_rol')?.reset();
     });
   }
-
-
 }
