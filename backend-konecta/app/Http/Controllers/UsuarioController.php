@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTExceptions;
 
 class UsuarioController extends Controller
 {
@@ -35,69 +37,36 @@ class UsuarioController extends Controller
         return response()->json($response);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    public function login(Request $request){
+        $credentials = $request->only('email','password');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        try {
+            if(!JWTAuth::attempt($credentials)){
+                $response['status']= 0;
+                $response['code']= 401;
+                $response['data']= null;
+                $response['message']= "El correo o el password es incorrecto";
+                return response()->json($response);
+            }
+            
+        } catch (JWTException $e) {
+            $response['data']= null;
+            $response['message']= "El Token no puede ser creado";
+            $response['code']= 500;
+            return response()->json($response);
+        }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        $user = auth()->user();
+        $data['token'] = auth()->claims([
+          'user_id' => $user->id,
+          'email' => $user->email
+        ])->attempt($credentials);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $response['status']= 1;
+        $response['code']= 200;
+        $response['data']= $data;
+        $response['message']= "Ingreso Exitoso!";
+        return response()->json($response);
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
