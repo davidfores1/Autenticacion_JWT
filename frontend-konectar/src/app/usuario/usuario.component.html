@@ -1,3 +1,4 @@
+<button class="btn btn-info"><a href="registro">Registrar Usuario</a></button>
 <table class="table">
     <thead>
       <tr>
@@ -11,8 +12,8 @@
       <tr *ngFor="let row of data">
         <td>{{row.name}}</td>
         <td>{{row.email}}</td>
-        <td><button class="btn btn-success">Editar</button></td>
-        <td><button class="btn btn-danger">Eliminar</button></td>
+        <td><button class="btn btn-success"(click)="edit(row)">Editar</button></td>
+        <td><button class="btn btn-danger" (click)="delete(row.id)">Eliminar</button></td>
         
       </tr>
     </tbody>

@@ -26,4 +26,43 @@ export class UsuarioComponent implements OnInit {
 
   }
 
-}
+  new() {
+    this.actual_usuario = new User();
+    this.crud_operation.is_visible = true;
+    this.crud_operation.is_new = true;
+  }
+
+  save() {
+    if (this.crud_operation.is_new) {
+      this.service.insert(this.actual_usuario).subscribe(res => {
+        this.actual_usuario = new User();
+        this.crud_operation.is_visible = false;
+        this.ngOnInit();
+      })
+
+      return;
+    }
+      this.service.update(this.actual_usuario).subscribe(res => {
+        this.actual_usuario = new User();
+        this.crud_operation.is_visible = false;
+        this.ngOnInit();
+      })
+    }
+
+    edit(row:any) {
+
+      this.crud_operation.is_visible = true;
+      this.crud_operation.is_new = false;
+      this.actual_usuario = row;
+    }
+
+    delete(id:any) {
+      
+        this.service.delete(id).subscribe(res => {
+          this.crud_operation.is_new = false;
+          this.ngOnInit();
+        })
+
+      }
+  }
+
