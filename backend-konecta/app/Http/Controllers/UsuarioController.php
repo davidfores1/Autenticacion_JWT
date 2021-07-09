@@ -68,5 +68,27 @@ class UsuarioController extends Controller
         $response['message']= "Ingreso Exitoso!";
         return response()->json($response);
     }
+
+    public function index()
+    {
+        return User::all();
+    }
+
+    public function update(Request $request, $id)
+    {
+        $usuario = User::findOrFail($id);
+        $usuario->name = $request->name;
+        $usuario->email = $request->email;
+        $usuario->password = $request->password;
+        $usuario->id_rol = $request->id_rol;
+        $usuario->update();
+        return $usuario;
+    }
+
+    public function destroy($id)
+    {
+        $usuario = User::findOrFail($id);
+        $usuario->delete();
+    }
     
 }

@@ -12,7 +12,8 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { UsuarioService } from './services/usuario.service';
+import { AuthService } from './services/auth.service';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { UsuarioService } from './services/usuario.service';
     AppComponent,
     ClienteComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,7 @@ import { UsuarioService } from './services/usuario.service';
     ToastrModule.forRoot()
 
   ],
-  providers: [ClienteService,UsuarioService],
+  providers: [ClienteService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {UsuarioService} from '../services/usuario.service';
+import {AuthService} from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
@@ -13,7 +13,7 @@ form:FormGroup;
 submitted = false;
 data:any;
 
-  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private toastrService:ToastrService ) { }
+  constructor(private formBuilder:FormBuilder, private usuarioService:AuthService, private toastrService:ToastrService ) { }
 
   createForm(){
 

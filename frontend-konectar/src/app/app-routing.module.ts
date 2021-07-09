@@ -4,6 +4,7 @@ import { AuthGuard } from './auth.guard';
 import { ClienteComponent } from './cliente/cliente.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 const routes: Routes = [
   
@@ -12,10 +13,15 @@ const routes: Routes = [
   canActivate:[AuthGuard]
 },
 {
-  path:'registro', component: RegisterComponent
+  path:'registro', component: RegisterComponent,
+  canActivate:[AuthGuard]
 },
 {
   path:'login', component: LoginComponent
+},
+{
+  path:'usuarios', component: UsuarioComponent,
+  canActivate:[AuthGuard]
 }
 
 ]
