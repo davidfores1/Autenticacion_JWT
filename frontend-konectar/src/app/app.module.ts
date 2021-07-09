@@ -13,8 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { UsuarioService } from './services/usuario.service';
-import { HomeComponent } from './home/home.component';
-
 
 
 @NgModule({
@@ -22,8 +20,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     ClienteComponent,
     LoginComponent,
-    RegisterComponent,
-    HomeComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
