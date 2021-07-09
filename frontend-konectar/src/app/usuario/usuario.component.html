@@ -1,4 +1,25 @@
-<button class="btn btn-info"><a href="registro">Registrar Usuario</a></button>
+<form class="form-group" *ngIf="crud_operation.is_visible">
+
+  <label for="">Nombre</label>
+  <input type="text" class="form-control"[(ngModel)]="actual_usuario.name" name="name">
+  <label for="">Correo</label>
+  <input type="text" class="form-control" [(ngModel)]="actual_usuario.email" name="email">
+  <label for="">Password</label>
+  <input type="text" class="form-control" [(ngModel)]="actual_usuario.password" name="password">
+  <div class="form-group">
+    <label for="">Rol</label>
+    <select class="form-control" formControlName="id_rol" name="id_rol" id="exampleFormControlSelect2" required>
+        <option value="1">Administrador</option>
+        <option value="2">Vendedor</option>
+    </select>
+</div>
+
+  <button class="btn btn-success" (click)="save()">Guardar</button>
+  <button class="btn btn-secondary" (click)="crud_operation.is_visible=false"><i class="far fa-arrow-alt-circle-up"></i></button>
+  
+</form>
+
+<button class="btn btn-info" (click)="new()">Registrar Usuario</button>
 <table class="table">
     <thead>
       <tr>
