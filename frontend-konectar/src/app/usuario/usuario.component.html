@@ -18,8 +18,13 @@
   <button class="btn btn-secondary" (click)="crud_operation.is_visible=false"><i class="far fa-arrow-alt-circle-up"></i></button>
   
 </form>
+<br>  
 
-<button class="btn btn-info" (click)="new()">Registrar Usuario</button>
+<div class="form-inline col-md-12">
+  <button class="btn btn-outline-success my-2 my-sm-0" style="float:right"(click)="ngOnInit()">Buscar</button>
+  <input class="form-control mr-sm-2"  type="buscar" placeholder="Buscar" [(ngModel)]="query"><br>
+</div>
+<button class="btn btn-info" style="float:right"><a href="registro">Registrar usuario</a></button><br><br>
 <table class="table">
     <thead>
       <tr>

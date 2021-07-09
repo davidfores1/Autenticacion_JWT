@@ -69,9 +69,9 @@ class UsuarioController extends Controller
         return response()->json($response);
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return User::all();
+        return User::search($request->buscar);
     }
 
     public function update(Request $request, $id)

@@ -64,4 +64,13 @@ class User extends Authenticatable implements JWTSubject
     {
         return [];
     }
+
+    public static function search($query =''){
+        if(!$query){
+            return self::all();
+        }
+        return self::where('name','like',"%$query%")
+        ->orWhere('email','like',"%$query%")
+        ->get();
+    }
 }

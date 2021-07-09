@@ -10,8 +10,8 @@ export class UsuarioService {
  data:User[];
 
   constructor(private http: Http) { }
-  read(){
-    return this.http.get('http://127.0.0.1:8000/usuarios');
+  read(query=''){
+    return this.http.get('http://127.0.0.1:8000/usuarios',{params:{buscar:query}});
   }
 
   insert(data:User){
