@@ -21,6 +21,7 @@
     "@angular/router": "~12.1.1",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "bootstrap": "^5.0.2",
+    "jwt-decode": "^3.1.2",
     "ngx-toastr": "^14.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",
