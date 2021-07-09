@@ -5,19 +5,44 @@
     </header>
 
 
-    <form>
+    <form (ngSubmit)="submit()" [formGroup]="form">
 
         <div class="form-group">
             <label for="">Correo</label>
-            <input type="text" name="email" class="form-control" placeholder="Correo">
+            <input type="text" formControlName="email" name="email" class="form-control" placeholder="Correo"
+                [ngClass]="{'is-invalid': submitted && f.email.errors}">
+
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">
+                    El correo es requerido
+                </div>
+
+                <div *ngIf="f.email.errors">
+                    Correo erroneo
+                </div>
+
+            </div>
+
         </div>
 
         <div class="form-group">
-            <label for="">Password</label>
-            <input type="password" name="password" class="form-control" placeholder="Password">
+        <label for="">Password</label>
+        <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password"
+            [ngClass]="{'is-invalid': submitted && f.password.errors}">
+
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+
+            <div *ngIf="f.password.errors.required">
+                El password es requerido
+            </div>
+
+            <div *ngIf="f.password.errors.minlength">
+                El password debe contener minimo 6 caracteres
+            </div>
         </div>
+    </div>
+        <button type="submit" class="btn btn-primary mt-4">Entrar</button>
 
-
-    </form>
+</form>
 
 </div>

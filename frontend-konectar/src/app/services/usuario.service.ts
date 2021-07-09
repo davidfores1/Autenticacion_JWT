@@ -14,4 +14,10 @@ export class UsuarioService {
     return this.http.post(environment.apiUrl + '/api/register/', data)
 
   }
+
+  login(data:any){
+
+    return this.http.post(environment.apiUrl + '/api/login/', data)
+
+  }
 }

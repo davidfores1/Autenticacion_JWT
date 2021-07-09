@@ -12,6 +12,7 @@ import { RegisterComponent } from './register/register.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { UsuarioService } from './services/usuario.service';
 
 
 
@@ -33,7 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot()
 
   ],
-  providers: [ClienteService],
+  providers: [ClienteService,UsuarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
