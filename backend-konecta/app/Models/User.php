@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -67,10 +68,16 @@ class User extends Authenticatable implements JWTSubject
 
     public static function search($query =''){
         if(!$query){
-            return self::all();
+            
+            return $users = DB::table('users')
+            ->join('roles', 'users.id_rol', '=', 'roles.id')
+            ->select('users.*', 'roles.nombre_rol')
+            ->get();
         }
         return self::where('name','like',"%$query%")
         ->orWhere('email','like',"%$query%")
+        ->join('roles', 'users.id_rol', '=', 'roles.id')
+        ->select('users.*', 'roles.nombre_rol')
         ->get();
     }
 }

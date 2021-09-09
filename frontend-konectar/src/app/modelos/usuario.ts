@@ -4,6 +4,7 @@ export class User {
     email:string;
     password:string;
     id_rol:number;
+    nombre_rol:string;
 
     constructor(){
 

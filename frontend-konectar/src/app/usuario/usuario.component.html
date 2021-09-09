@@ -30,6 +30,7 @@
       <tr>
         <th scope="col">Nombre</th>
         <th scope="col">Correo</th>
+        <th scope="col">Rol</th>
         <th scope="col">Editar</th>
         <th scope="col">Eliminar</th>
       </tr>
@@ -38,6 +39,7 @@
       <tr *ngFor="let row of data">
         <td>{{row.name}}</td>
         <td>{{row.email}}</td>
+        <td>{{row.nombre_rol}}</td>
         <td><button class="btn btn-success"(click)="edit(row)">Editar</button></td>
         <td><button class="btn btn-danger" (click)="delete(row.id)">Eliminar</button></td>
         
