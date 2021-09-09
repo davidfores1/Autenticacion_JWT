@@ -4,9 +4,9 @@ Laravel Framework 8.49.2
 MYSQL: 10.4.19<br>
 PHP Version 7.4.20<br>
 
-<h2>Clonar un proyecto de Laravel desde GitHub</h2>
+<h2>Al clonar un proyecto de Laravel desde GitHub:</h2>
 
-<h2>Laravel:</h2>
+<h2>Laravel</h2>
 <h3>Instalar dependencias:</h3>
 Para ello abriremos una terminal en la carpeta del proyecto y ejecutaremos: composer install<br>
 Vemos cómo se ha creado la carpeta vendor<br>
@@ -43,7 +43,7 @@ Si tuvieramos que incluir o crear nuevas migraciones utilizaríamos:<br>
 php artisan migrate:refresh <br>
 php artisan migrate:fresh  //borra y crea todas las tablas de nuevo
 <hr>  
-<h2>Angular:</h2>
+<h2>Angular</h2>
 Ejecutar npm install
 
 npm install nos descargara todas las dependencias necesarias para poder ejecutar nuestro proyecto angular en el servidor local.
