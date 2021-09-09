@@ -1,6 +1,6 @@
 <h1>REQUISITOS:</h1>
-Angular: 12.1.1
-Laravel Framework 8.49.2
+Angular: 12.1.1<br>
+Laravel Framework 8.49.2<br>
 MYSQL: 10.4.19<br>
 PHP Version 7.4.20<br>
 
