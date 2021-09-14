@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './services/auth.service';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
     ClienteComponent,
     LoginComponent,
     RegisterComponent,
-    UsuarioComponent
+    UsuarioComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

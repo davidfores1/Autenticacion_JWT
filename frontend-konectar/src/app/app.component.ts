@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import jwt_decode from "jwt-decode";
 
 @Component({
@@ -10,15 +9,13 @@ import jwt_decode from "jwt-decode";
 export class AppComponent implements OnInit {
   token: any;
   userData: any;
+  title: any;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);
   }
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login'])
-  }
+
 }

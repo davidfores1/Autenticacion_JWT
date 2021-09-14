@@ -1,48 +1,35 @@
-<div class="container mt-4">
-
-    <header class="bg-info text-white p-1 mb-2 text-center">
-        <h1>Login</h1>
-    </header>
-
-
-    <form (ngSubmit)="submit()" [formGroup]="form">
-
-        <div class="form-group">
-            <label for="">Correo</label>
-            <input type="text" formControlName="email" name="email" class="form-control" placeholder="Correo"
-                [ngClass]="{'is-invalid': submitted && f.email.errors}">
-
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">
-                    El correo es requerido
-                </div>
-
-                <div *ngIf="f.email.errors">
-                    Correo erroneo
-                </div>
-
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> LOGIN </h2>
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <img src="https://picsum.photos/100/100" class="float-left rounded-circle mr-2" />
+      </div>
+  
+      <!-- Login Form -->
+      <form (ngSubmit)="submit()" [formGroup]="form">
+        <input type="email" formControlName="email" id="login" name="email" class="fadeIn second" placeholder="Correo"
+        [ngClass]="{'is-invalid': submitted && f.email.errors}">
+        <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">
+                El correo es requerido
             </div>
 
-        </div>
-
-        <div class="form-group">
-        <label for="">Password</label>
-        <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password"
-            [ngClass]="{'is-invalid': submitted && f.password.errors}">
-
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-
-            <div *ngIf="f.password.errors.required">
-                El password es requerido
+            <div *ngIf="f.email.errors">
+                Correo erroneo
             </div>
+        </div> 
 
-            <div *ngIf="f.password.errors.minlength">
-                El password debe contener minimo 6 caracteres
-            </div>
-        </div>
+        <input type="password" id="password" class="fadeIn third" formControlName="password" name="password" placeholder="password" [ngClass]="{'is-invalid': submitted && f.password.errors}">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#">Forgot Password?</a>
+      </div>
+  
     </div>
-        <button type="submit" class="btn btn-primary mt-4">Entrar</button>
-
-</form>
-
-</div>
+  </div>
