@@ -14,8 +14,10 @@ export class AppComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if(this.token){
     this.token = localStorage.getItem('token');
     this.userData = jwt_decode(this.token);
+  }
   }
 
 }

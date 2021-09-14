@@ -83,7 +83,8 @@ class User extends Authenticatable implements JWTSubject
 
     public static function userRole($id){
 
-        return $userRol = User::select('roles.nombre_rol')
+        return $userRol = DB::table('users')
+        ->where('users.id','=', $id)
         ->join('roles', 'users.id_rol', '=', 'roles.id')
         ->select('roles.nombre_rol')
         ->get();
