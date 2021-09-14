@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+  import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth.guard';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -10,18 +10,27 @@ const routes: Routes = [
   
 {
   path:'', component: ClienteComponent,
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard],
+  data: {
+    rol: ['Admin','Vendedor']
+  }
 },
 {
   path:'registro', component: RegisterComponent,
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard],
+  data: {
+    rol: ['Admin']
+  }
 },
 {
   path:'login', component: LoginComponent
 },
 {
   path:'usuarios', component: UsuarioComponent,
-  canActivate:[AuthGuard]
+  canActivate:[AuthGuard],
+  data: {
+    rol: ['Admin']
+  }
 }
 
 ]

@@ -41,11 +41,12 @@ export class LoginComponent implements OnInit {
     }
     this.usuarioService.login(this.form.value).subscribe(res => {
       this.data = res;
-      console.log(res);
 
       if (this.data.status === 1) {
         this.token = this.data.data.token;
         localStorage.setItem('token',this.token);
+        localStorage.setItem('nombre_rol',this.data.rol.nombre_rol);
+        
         this.router.navigate(['/']);
         this.toastrService.success(JSON.stringify(this.data.message),JSON.stringify(this.data.code),{
           timeOut:2000,

@@ -61,10 +61,18 @@ class UsuarioController extends Controller
           'user_id' => $user->id,
           'email' => $user->email
         ])->attempt($credentials);
+        
+
+        $userRol = User::userRol($user->id); 
+
+        foreach($userRol as $key=>$value) {
+             $value;
+        }    
 
         $response['status']= 1;
         $response['code']= 200;
         $response['data']= $data;
+        $response['rol'] = $value;
         $response['message']= "Ingreso Exitoso!";
         return response()->json($response);
     }

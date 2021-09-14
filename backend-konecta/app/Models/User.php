@@ -66,6 +66,10 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+
     public static function search($query =''){
         if(!$query){
             
@@ -78,6 +82,15 @@ class User extends Authenticatable implements JWTSubject
         ->orWhere('email','like',"%$query%")
         ->join('roles', 'users.id_rol', '=', 'roles.id')
         ->select('users.*', 'roles.nombre_rol')
+        ->get();
+    }
+
+    public static function userRol($id){
+
+        return $users = DB::table('users')
+        ->where('id_rol',$id)
+        ->join('roles', 'users.id_rol', '=', 'roles.id')
+        ->select('roles.nombre_rol')
         ->get();
     }
 }
