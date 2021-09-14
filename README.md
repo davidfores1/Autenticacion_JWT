@@ -24,7 +24,7 @@ Ejemplo:<br>
 -DB_CONNECTION=mysql<br>
 -DB_HOST=localhost<br>
 -DB_PORT=3306<br>
--DB_DATABASE=laravel_project<br>
+-DB_DATABASE=base de datos creada<br>
 -DB_USERNAME=root<br>
 -DB_PASSWORD=secret<br>
 ....
