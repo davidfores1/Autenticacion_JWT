@@ -24,7 +24,7 @@ Ejemplo:<br>
 -DB_CONNECTION=mysql<br>
 -DB_HOST=localhost<br>
 -DB_PORT=3306<br>
--DB_DATABASE=laravel_project<br>
+-DB_DATABASE=base de datos creada<br>
 -DB_USERNAME=root<br>
 -DB_PASSWORD=secret<br>
 ....
@@ -35,14 +35,14 @@ Para crear la nueva clave e insertarla automáticamente en el .env, ejecutaremos
 php artisan key:generate<br>
 
 <h3>Ejecutar migraciones</h3>
-Por último, ejecutamos las migraciones para que se generen las tablas con:<br>
+ejecutar las migraciones para que se generen las tablas con:<br>
 php artisan migrate<br>
 
 <h3>[Nota]:</h3>
+AGREGAR ROLES Y USUARIOS QUE SE ENCUENTRAN EN EL ARCHIVO db_konectar.sql adjunto<br>
 Si tuvieramos que incluir o crear nuevas migraciones utilizaríamos:<br>
 php artisan migrate:refresh <br>
 php artisan migrate:fresh  //borra y crea todas las tablas de nuevo
-	AGREGAR ROLES Y USUARIOS QUE SE ENCUENTRAN EN EL ARCHIVO db_konectar.sql 
 
 <hr>  
 <h2>Angular</h2>
