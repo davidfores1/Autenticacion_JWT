@@ -39,11 +39,10 @@ ejecutar las migraciones para que se generen las tablas con:<br>
 php artisan migrate<br>
 
 <h3>[Nota]:</h3>
-AGREGAR ROLES Y USUARIOS QUE SE ENCUENTRAN EN EL ARCHIVO db_konectar.sql adjunto
+AGREGAR ROLES Y USUARIOS QUE SE ENCUENTRAN EN EL ARCHIVO db_konectar.sql adjunto<br>
 Si tuvieramos que incluir o crear nuevas migraciones utilizaríamos:<br>
 php artisan migrate:refresh <br>
 php artisan migrate:fresh  //borra y crea todas las tablas de nuevo
-	AGREGAR ROLES Y USUARIOS QUE SE ENCUENTRAN EN EL ARCHIVO db_konectar.sql 
 
 <hr>  
 <h2>Angular</h2>
