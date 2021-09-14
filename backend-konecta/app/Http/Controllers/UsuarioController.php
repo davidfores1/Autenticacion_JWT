@@ -63,7 +63,7 @@ class UsuarioController extends Controller
         ])->attempt($credentials);
         
 
-        $userRol = User::userRol($user->id); 
+        $userRol = User::userRole($user->id); 
 
         foreach($userRol as $key=>$value) {
              $value;

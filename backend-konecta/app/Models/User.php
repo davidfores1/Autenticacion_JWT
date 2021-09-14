@@ -66,10 +66,6 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    public function role(){
-        return $this->belongsTo(Role::class);
-    }
-
     public static function search($query =''){
         if(!$query){
             
@@ -85,10 +81,9 @@ class User extends Authenticatable implements JWTSubject
         ->get();
     }
 
-    public static function userRol($id){
+    public static function userRole($id){
 
-        return $users = DB::table('users')
-        ->where('id_rol',$id)
+        return $userRol = User::select('roles.nombre_rol')
         ->join('roles', 'users.id_rol', '=', 'roles.id')
         ->select('roles.nombre_rol')
         ->get();
